@@ -1,4 +1,3 @@
-import os
 import io
 from pydub import AudioSegment
 import streamlit as st
