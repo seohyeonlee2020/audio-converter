@@ -5,7 +5,7 @@ import streamlit as st
 st.title("Audio Converter")
 
 uploaded_file = st.file_uploader(
-    "Upload an audio file you want to convert", accept_multiple_files=False, type="m4a"
+    "Upload an audio file you want to convert", accept_multiple_files=False, type=".m4a"
 )
 
 if uploaded_file is not None:
