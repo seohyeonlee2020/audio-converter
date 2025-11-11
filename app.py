@@ -2,10 +2,32 @@ import io
 from pydub import AudioSegment
 import streamlit as st
 
-st.title("Audio Converter")
+# Core imports
+import os
+import torch
+from torch import nn, optim
+from torch.utils.data import DataLoader, TensorDataset
+
+# Audio
+import torchaudio
+import torchaudio.transforms as T
+
+# Visualization
+import matplotlib.pyplot as plt
+import numpy as np
+
+from diffusers import StableDiffusionImg2ImgPipeline
+from audio_to_image import audio2image
+
+device = "cuda"
+model_id_or_path = "stable-diffusion-v1-5/stable-diffusion-v1-5"
+pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id_or_path, torch_dtype=torch.float16)
+pipe = pipe.to(device)
+
+st.title("Audio To Image")
 
 uploaded_files = st.file_uploader(
-    "Upload an audio file you want to convert", accept_multiple_files=True, type=".m4a"
+    "Upload an audio file you want to convert", accept_multiple_files=True, type=".wav"
 )
 
 for uploaded_file in uploaded_files:
@@ -13,14 +35,9 @@ for uploaded_file in uploaded_files:
         try:
             filename = uploaded_file.name
             print('filename', filename)
-            sound = AudioSegment.from_file(uploaded_file, format="m4a")
-            buffer = io.BytesIO()
-            sound.export(buffer, format="wav")
-            exported_audio = buffer.getvalue()
-            st.download_button(
-	            label=f"Download {filename.split(".")[0]}.wav",
-	            data=exported_audio,
-	            file_name=f"{filename.split(".")[0]}.wav")
+
+            image = audio2image(uploaded_file, pipe)
+            st.image(image, caption= f"Abstract Art Generated From {filename}", use_column_width=True)
 
         except Exception as e:
             print(f"Error converting '{filename}': {e}")
