@@ -6,7 +6,7 @@ import torchaudio.transforms as T
 import torchvision.transforms as vtrans
 import matplotlib.pyplot as plt
 from PIL import Image
-from diffusers import StableDiffusionImg2ImgPipeline as Img2ImgPipeline  # or AudioLDM if you prefer
+from diffusers import StableDiffusionImg2ImgPipeline # or AudioLDM if you prefer
 
 
 def normalize_spectrogram(spec):
@@ -15,11 +15,14 @@ def normalize_spectrogram(spec):
     return (spec - spec_min) / (spec_max - spec_min + 1e-8)
 
 
-def audio2image(uploaded_file, pipe):
+def audio2image(uploaded_file):
     """
     Takes a WAV file uploaded through Streamlit and generates an abstract image.
     Returns a PIL image.
     """
+    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+    "runwayml/stable-diffusion-v1-5", torch_dtype=torch.float32
+    ).to("mps")
     # --- load audio ---
     waveform, sample_rate = torchaudio.load(uploaded_file)
 

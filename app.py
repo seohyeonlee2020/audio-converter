@@ -6,7 +6,6 @@ import streamlit as st
 import os
 import torch
 from torch import nn, optim
-from torch.utils.data import DataLoader, TensorDataset
 
 # Audio
 import torchaudio
@@ -19,10 +18,18 @@ import numpy as np
 from diffusers import StableDiffusionImg2ImgPipeline
 from audio_to_image import audio2image
 
-device = "cuda"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 model_id_or_path = "stable-diffusion-v1-5/stable-diffusion-v1-5"
-pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id_or_path, torch_dtype=torch.float16)
-pipe = pipe.to(device)
+torch_dtype = torch.float16 if device == "cuda" else torch.float32
+
+"""
+pipe = StableDiffusionImg2ImgPipeline.from_pretrained(model_id_or_path, torch_dtype=torch_dtype)
+pipe = pipe.to(device) """
+
+pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+    "runwayml/stable-diffusion-v1-5", torch_dtype=torch.float32
+).to("mps")
+
 
 st.title("Audio To Image")
 
