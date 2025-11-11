@@ -18,7 +18,7 @@ for uploaded_file in uploaded_files:
             sound.export(buffer, format="wav")
             exported_audio = buffer.getvalue()
             st.download_button(
-	            label="Download converted audio",
+	            label=f"Download {filename.split(".")[0]}.wav",
 	            data=exported_audio,
 	            file_name=f"{filename.split(".")[0]}.wav")
 
