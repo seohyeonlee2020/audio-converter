@@ -1,10 +1,8 @@
-# Audio → Image → Audio: Expanding the Language of Sampling
+# Sampling through Generative Art
 
 ## Concept
 
-Sampling takes existing material and recontextualizes it—finding new meaning through transformation and reinterpretation. This project extends that practice across mediums: audio is translated to visual, reinterpreted by an image-based AI, then translated back to audio.
-
-The premise is simple: machine learning systems treat audio and images as interchangeable data—arrays of numbers that can be reshaped and reinterpreted. This system exploits that property to create a translation chain where meaning emerges through the gaps in conversion.
+This project expands the concept of sampling, which originated from a musical practice where musicians mixed and matched "samples" of pre-existing music to create distinct results. This project extends that practice across mediums: audio is reinterpreted by Stable Diffusion into generative art, and then translated back to audio. Machine learning systems treat audio and images as interchangeable data—arrays that can be reshaped and reinterpreted. This system exploits that property to create a translation chain where unexpected meaning emerges through gaps in conversion.
 
 **Process:**
 1. Audio → Spectrogram (visual representation)
