@@ -95,15 +95,15 @@ Each conversion method constitutes a different "reading" of the visual data, ext
 
 This project operates at the intersection of several questions:
 
-**On sampling:** If musical sampling recontextualizes audio, what happens when we sample across modalities? Is it still sampling if the source is unrecognizable?
+ - On sampling: If hip-hop sampling recontextualizes music, what happens when we sample across modalities? Is it still sampling if the outcome passes through a different format?
 
-**On ownership**: Who has the right to claim work coming out of this system? The person who created the original audio? This system itself? The user?
+ - On ownership: Who has the right to claim work coming out of this system? The person who created the original audio? This system itself? The user?
 
-**On translation:** Every conversion (audio→visual→audio) is interpretive, not neutral. The technical choices we make about how to read data determine what meaning survives the translation.
+ - On translation: Every conversion (audio→visual→audio) is interpretive, not neutral. The technical choices I make about how to read data determine what meaning survives the translation.
 
-**On computing as medium:** ML systems don't distinguish between audio and visual data—both are just arrays. This project makes that abstraction tangible, using the interchangeability of data as creative material.
+ - On computing as artistic medium: AI/ML systems don't distinguish between audio and visual data. Both are multidimensional arrays. I exploited this interchangeability as a creative opening.
 
-**On multiplicity:** The same source can yield infinite interpretations. Different conversion methods extract different "meanings" from identical data. This multiplicity isn't a bug—it's the core investigation.
+ - On multiplicity: Different conversion methods extract different "meanings" from identical data.
 
 ---
 
