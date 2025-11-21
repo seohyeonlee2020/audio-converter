@@ -1,4 +1,5 @@
 # Sampling through Generative Art
+<img width="400" height="296" alt="generative_art_from_alex_lee_sound_collage wav_at_20251119_004446" src="https://github.com/user-attachments/assets/b60d5013-d1df-4a53-a809-601f3530045d" />
 
 ## Concept
 
